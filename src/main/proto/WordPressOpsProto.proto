@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cloudlab.WordPressOpsProto";
+option java_outer_classname = "WordPressOpsProto";
+option objc_class_prefix = "EC";
+
+package WordPressOpsProto;
+
+// The greeting service definition.
+service WordPressOps {
+  // Create VM
+  rpc deployApp (DeployAppRequest) returns (DeployAppReply) {}
+  rpc deployDB (DeployDBRequest) returns (DeployDBReply) {}
+  rpc connectAppToDB (ConnectRequest) returns (ConnectReply) {}
+  rpc backupDB (BackupRequest) returns (BackupReply) {}
+  rpc restoreDB (RestoreRequest) returns (RestoreReply) {}
+}
+
+// The request message containing details to deploy WordPress App
+message DeployAppRequest {
+  string credentials = 1;
+  string bucketName = 2;
+  string username = 3;
+  string publicIP = 4;
+}
+
+// The response message containing executed output
+message DeployAppReply {
+  string output = 1;
+}
+
+// The request message containing details to deploy DB
+message DeployDBRequest {
+  string credentials = 1;
+  string bucketName = 2;
+  string username = 3;
+  string publicIP = 4;
+}
+
+// The response message containing executed output
+message DeployDBReply {
+  string output = 1;
+}
+
+// The request message containing details to connect App with DB
+message ConnectRequest {
+  string credentials = 1;
+  string bucketName = 2;
+  string username = 3;
+  string publicIP = 4;
+}
+
+// The response message containing executed output
+message ConnectReply {
+  string output = 1;
+}
+
+// The request message containing details to backup DB
+message BackupRequest {
+  string credentials = 1;
+  string username = 2;
+  string publicIP = 3;
+}
+
+// The response message containing executed output
+message BackupReply {
+  string output = 1;
+}
+
+// The request message containing details to restore DB
+message RestoreRequest {
+  string credentials = 1;
+  string username = 2;
+  string publicIP = 3;
+}
+
+// The response message containing executed output
+message RestoreReply {
+  string output = 1;
+}

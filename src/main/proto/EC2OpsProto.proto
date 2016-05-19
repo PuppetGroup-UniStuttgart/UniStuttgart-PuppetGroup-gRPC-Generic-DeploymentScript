@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cloudlab.EC2OpsProto";
+option java_outer_classname = "EC2OpsProto";
+option objc_class_prefix = "EC";
+
+package EC2OpsProto;
+
+// The greeting service definition.
+service EC2Ops {
+  // Create VM
+  rpc createVM (Request) returns (Reply) {}
+  rpc destroyVM (DestroyRequest) returns (DestroyReply) {}
+}
+
+// The request message containing details.
+message Request {
+  string machineSize = 1;
+  string region = 2;
+  string OS = 3;
+  string keyPair = 4;
+  string bucketName = 5;
+}
+
+// The response message containing instanceID & public IP
+message Reply {
+  string instanceID = 1;
+  string publicIP = 2;
+}
+
+message DestroyRequest {
+   string instanceID = 1;
+   string region = 2;
+}
+
+// The response message containing status
+message DestroyReply {
+  string status = 1;
+}
