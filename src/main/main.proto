@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "cloudlab.GenericOpsProto";
 
-package EC2OpsProto;
+package cloudlab.GenericOpsProto;
 
 // The greeting service definition.
 service GenericOps {
