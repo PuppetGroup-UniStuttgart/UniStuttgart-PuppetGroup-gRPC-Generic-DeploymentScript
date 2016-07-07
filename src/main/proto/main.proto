@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "cloudlab.GenericOpsProto";
+
+package cloudlab.GenericOpsProto;
+
+// The greeting service definition.
+service GenericOps {
+  // Create generic services
+  rpc create (GenericRequest) returns (GenericReply) {}
+}
+
+// The request message containing details.
+message GenericRequest {
+  string credentials = 1;
+  string bucketName = 2;
+  string username = 3;
+  string publicIP = 4;
+  string moduleName = 5;
+  string installFile = 6;
+}
+
+// The response message containing instanceID
+message GenericReply {
+  string output = 1;
+}
