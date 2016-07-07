@@ -62,13 +62,13 @@ public class GenericOpsClient {
 
 			System.out.println("WordPress Ops");
 			System.out.println("Deploy App");
-			System.out.println("Key pair file name: " + properties.getProperty("keyPair"));
+			System.out.println("Key pair file name: " + properties.getProperty("credentials"));
 			System.out.println("S3 bucket name (holds the pem file): " + properties.getProperty("bucketName"));
 			System.out.println("Username: " + properties.getProperty("username"));
 			System.out.println("Public IP of instance: " + properties.getProperty("publicIP"));
 			System.out.println("Puppet module name: " + properties.getProperty("moduleName"));
 			System.out.println("Installation file git url: " + properties.getProperty("installFile"));
-			client.create(properties.getProperty("keyPair"), properties.getProperty("bucketName"),
+			client.create(properties.getProperty("credentials"), properties.getProperty("bucketName"),
 					properties.getProperty("username"), properties.getProperty("publicIP"), properties.getProperty("moduleName"), properties.getProperty("installFile"));
 		} finally {
 			client.shutdown();
